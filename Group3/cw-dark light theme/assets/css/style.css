@@ -40,3 +40,9 @@
   min-height: 50px;
 }
 /* my utilities -end */
+
+
+
+.themeBox{
+  cursor: pointer;
+}
