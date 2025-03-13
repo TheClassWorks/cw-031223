@@ -7,16 +7,28 @@ let Data = [
 
 let ax = document.querySelector(".slider-img");
 let nextBtn = document.querySelector(".slider-forward-btn");
+let prevBtn = document.querySelector(".slider-back-btn");
 
 // console.log(Data[1]);
 let clr = setInterval(nextpic, 3000);
 nextBtn.addEventListener("click", nextpic);
+prevBtn.addEventListener("click", prevpic);
 
 let index = 0;
 function nextpic() {
   index++;
-  if (index == 4) {
+  if (index == Data.length) {
     index = 0;
+  }
+  //   console.log(Data[index].src);
+  ax.setAttribute("src", Data[index].src);
+  clearInterval(clr);
+  clr = setInterval(nextpic, 3000);
+}
+function prevpic() {
+  index--;
+  if (index == -1) {
+    index = Data.length - 1;
   }
   //   console.log(Data[index].src);
   ax.setAttribute("src", Data[index].src);
